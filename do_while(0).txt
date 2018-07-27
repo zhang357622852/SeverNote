@@ -1,0 +1,36 @@
+
+1.使用do{...}while(0)构造后的宏定义不会受到大括号、分号等的影响，总是会按你期望的方式调用运行
+
+  	例子：#define foo(x) bar(x); baz(x)
+		
+		if (!feral)
+    			foo(wolf);
+		展开后：
+		if(!feral)
+			bar(x);
+		baz(x);
+		这样的就不是我们所期望得到的
+
+2.为什么不用大括号直接把宏包围起来呢？为什么非得使用do/while(0)逻辑呢？
+	
+	例子：#define foo(x)  { bar(x); baz(x); }
+		if(!feral)
+			foo(x);
+		else
+			bin(x);
+		展开后：
+		if(!feral)
+		{
+			bar(x);
+			baz(x);
+		};
+		else
+			bin(x);
+		这样的语法就错误了。
+
+3.while(0)确保了只执行一次
+
+	
+	
+
+	
