@@ -1,0 +1,17 @@
+
+ci是 case insensitive, 即 "大小写不敏感", a 和 A 会在字符判断中会被当做一样的;
+cs是 大小写敏感
+
+1.utf8_general_ci
+
+	utf8_general_ci 不区分大小写，这个你在注册用户名和邮箱的时候就要使用。 
+
+2.utf8_unicode_ci
+
+
+3.总结:
+	utf8_unicode_ci和utf8_general_ci对中、英文来说没有实质的差别。
+
+	utf8_general_ci校对速度快，但准确度稍差。
+
+	utf8_unicode_ci准确度高，但校对速度稍慢。

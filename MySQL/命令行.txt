@@ -1,0 +1,6 @@
+
+1.µÇÈë
+	mysql -u ÕËºÅ(root) -p
+
+2.ĞŞ¸ÄÃÜÂë
+	set password for ÕËºÅ@localhost = password("123456");

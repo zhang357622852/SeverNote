@@ -1,0 +1,86 @@
+
+1.不带参数
+
+	Thread thread = new Thread(DoInitModule);
+
+	thread.Start();
+
+	private void DoInitModule(){}
+
+2.带参数
+
+	Thread thread = new Thread(DoInitModule);
+
+	string str = "我是参数";
+
+	thread.Start(str);
+
+	private void DoInitModule(objece para)
+	{
+		string str = para as string;
+	}
+
+3.生命周期
+	
+	开始于对象被创建（未启动状态）
+	调用Start()启动执行线程
+	结束于线程被终止Abort()和完成执行时
+
+
+4.前台线程和后台线程
+	
+	.Net中的线程,可以分为后台线程和前台线程。后台线程与前台线程并没有本质的区别，它们之间唯一的区别就是：
+
+	后台线程不会防止应用程序的进程被终止掉。就是当前台线程都结束了的时候,整个程序也就结束了,即使还有后台线程正在运行,此时,所有剩余的后台线程都会被停止且不会完成.但是,只要还有一个前台线程没有结束,那么它将阻止程序结束.应用程序进程的存亡由前台线程决定而于后台线程无关
+
+	改变线程从前台到后台不会以任何方式改变它在CPU协调程序中的优先级和状态。因为前台后线程与程序进程的优先级无关
+
+	4.1 前台线程
+		
+		Thread foregroundThread = new Thread(DoInitModule);
+		foregroundThread.Name = "ForegroundTread";
+
+	4.2 后台线程
+	
+		Thread backgroundThread = new Thread(DoInitModule);
+		backgroundThread.Name "BackgroundThread ";
+		backgroundThread.IsBackground = true;
+
+
+5.Start()/静态函数Sleep(int millisecondsTimeout)/Abort()
+
+	5.1 Start():启动线程
+
+	5.2 Thread.Sleep(): 
+		
+		Thread thread = new Thread(DoInitModule);
+
+		thread.Start();
+
+		// 线程睡眠5000毫秒, 写在这里，就是睡眠这里的线程了
+		//Thread.Sleep(5000);
+
+		private void DoInitModule()
+		{
+			Debug.Log("线程睡眠前");
+
+			// 线程睡眠5000毫秒, 写在这里，说明是睡眠这个线程
+			Thread.Sleep(5000);
+
+			Debug.Log("5000毫秒后执行");
+		}
+
+	5.3 Abort() 终止线程
+
+
+
+
+
+
+
+
+
+
+
+
+
